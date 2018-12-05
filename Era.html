@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Камень, ножницы, бумага.</title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script type="text/javascript">
+            <!-- здесь сам код игры -->
+        </script>
+    </head>
+    <body bgcolor="black" onload="game()">
+        <div>
+            <h1><font color="white">Заинтересовало?  <br> Обновляйте страницу!</font></h1>
+
+        </div>
+    </body>
+</html>
+  <script>
+function game() {
+var userChoice = prompt("Что выбираете, камень, ножницы или бумагу?").toLowerCase();
+var computerChoice = Math.random();
+if (computerChoice < 0.34) {
+    computerChoice = "камень";
+} else if(computerChoice <= 0.67) {
+    computerChoice = "бумага";
+} else {
+    computerChoice = "ножницы";
+}
+document.write("<p>Ваш выбор: " + userChoice + "</p>");
+document.write("<p>Выбор компьютера: " + computerChoice + "</p><br>");
+var compare = function (choice1, choice2)
+{if (choice1 === choice2)
+{ document.write("Ничья!");
+} else if (choice1 === "камень") {
+    if (choice2 === "ножницы") {
+        document.write("Вы выиграли.");
+    }
+    else if (choice2 === "бумага") {
+        document.write("Вы проиграли.");
+    }
+} else if (choice1 === "бумага") {
+    if (choice2 === "камень") {
+        document.write("Вы выиграли.");
+    }
+    else if (choice2 === "ножницы") {
+        document.write("Вы проиграли.");
+    }
+} else if (choice1 === "ножницы") {
+    if (choice2 === "камень") {
+        document.write("Вы проиграли.");
+    }
+    else if (choice2 === "бумага") {
+        document.write("Вы выиграли.");
+    }
+} else if (choice1 === "") {
+    document.write("Вы должны записать выбранный Вами предмет в поле.");
+} else if (choice1 !== "камень","бумага","ножницы") {
+    document.write("Нельзя выбирать этот предмет -> " + choice1 + ".<br> Вам предложено выбрать камень, ножницы или бумагу.");
+}
+}
+HTMLElement.write(compare(userChoice, computerChoice));
+};
+
+  </script>
